@@ -187,6 +187,7 @@ jobs:
           CONFIG_PACKAGE_luci-app-smartdns=y
           CONFIG_PACKAGE_luci-app-frpc=y
           CONFIG_PACKAGE_luci-app-socat=y
+          CONFIG_PACKAGE_luci-proto-relay=y
           # CONFIG_PACKAGE_luci-app-unblockmusic is not set
           # CONFIG_PACKAGE_luci-app-ipsec-vpnd is not set
           # CONFIG_PACKAGE_luci-app-minidlna is not set
@@ -264,6 +265,7 @@ jobs:
 
       - name: Make download
         run: |
+          cd openwrt
           make download -j8
           find dl -size -1024c -exec rm -f {} \;
 
@@ -282,6 +284,7 @@ jobs:
 
       - name: Prepare artifact
         run: |
+          cd openwrt
           #mkdir -p ./artifact/package
           #mkdir -p ./artifact/buildinfo
           rm -rf $(find ./bin/targets/ -type d -name "packages")
