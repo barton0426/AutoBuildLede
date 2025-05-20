@@ -287,7 +287,7 @@ jobs:
           cd openwrt
           mkdir -p ./artifact
           rm -rf $(find ./bin/targets/bcm53xx/generic -type d -name "packages")
-          cp -rf $(find ./bin/packages/bcm53xx/generic -type f -name "*phicomm*") ./artifact
+          cp -rf $(find ./bin/targets/bcm53xx/generic -type f -name "*phicomm*") ./artifact
 
       - name: Deliver firmware
         uses: actions/upload-artifact@v4
